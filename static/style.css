@@ -1,0 +1,17 @@
+/* Both Pages*/
+header{background-color:gainsboro;display:flex;justify-content: space-around;align-items:center;margin:0px auto;top:0px;width:1682px;left:0px;position: absolute;}
+body{align-content:center;align-items:center;text-align:center;justify-content:center;background-color:#C4C4C4;font-family: "Courier New", Courier, monospace;}
+.logo{color:#0a66c2;}
+.inputs{background-color:gainsboro;text-align:center;align-content:center;align-items:center;color:#2f76c9;border:none;font-family: "Courier New", Courier, monospace;width:200px;height:50px;}
+.inputs:hover{cursor:pointer;font-family: "Courier New", Courier, monospace;}
+footer{background-color:gainsboro;display:flex;justify-content: space-around;align-items:center;bottom:0px;width:1682px;left:0px;position:absolute;}
+/* ToDoListMainPage */
+table,th,td{border:solid;margin:auto;border-color:#303030;}
+table{position: absolute;top:300px;right:350px;width:1000px;}
+td{text-align:center;align-content:center;align-items:center;}
+.deletecompleteform:hover{cursor:pointer;}
+.deletecompleteform{text-align:center;align-content:center;align-items:center;border:none;font-family: "Courier New", Courier, monospace;background-color:#C4C4C4;text-decoration:underline;color:#2f76c9;}
+/* ToDoListAddTaskPage */
+.FormInputs{background-color:gainsboro;text-align:center;align-content:center;align-items:center;font-family: "Courier New", Courier, monospace;width:200px;height:50px;border:thin;border-radius:5px;}
+.FormInputs:hover{cursor:pointer;font-family: "Courier New", Courier, monospace;}
+.ToDoListAddTaskPageDiv{margin:0px auto;top:200px;width:800px;height:500px;left:450px;position:absolute;background-color:#FAFAFA;border-radius:5px;display:flex;justify-content: space-around;align-items:center;}

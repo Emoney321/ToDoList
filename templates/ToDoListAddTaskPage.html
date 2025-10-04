@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1 class="logo">ToDoList</h1>
+    <form action="/Home" method="post"><input type="submit" class="inputs" value="Home"></form>
+    <form action="/AddTaskPage" method="post"><input type="submit" class="inputs" value="AddTask"></form>
+  </header>
+  <div class="ToDoListAddTaskPageDiv">
+    <form id="form" action="/AddTask" method="post">
+        <h1>Add Task</h1>
+        <label for="title">Task Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter task title" class="FormInputs" required><br><br>
+        <label for="duedate">Due Date</label>
+        <input type="date" id="duedate" name="duedate" class="FormInputs" required><br><br>
+        <p id="checkmessage"></p>
+        <label for="priority">Priority</label>
+        <select id="priority" name="priority"><br><br>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br><br>
+        <input type="submit" value="Add Task" class="FormInputs">
+    </form>
+  </div>
+  <footer>
+    <h1 class="logo">@ 2025 ToDoList. All rights reserved.</h1>
+  </footer>
+<script type="text/javascript">
+    document.getElementById("form").addEventListener("submit", function (event) {
+        const duedate = document.getElementById('duedate').value;
+        const checkmessage = document.getElementById('checkmessage');
+        const date = new Date()
+        const formattedDateParts = date.toLocaleDateString('en-GB', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+        }).split('/');
+        const today = `${formattedDateParts[2]}-${formattedDateParts[1]}-${formattedDateParts[0]}`;
+
+        alert(today)
+        alert(duedate < today)
+        if (duedate < today) {
+            checkmessage.textContent = "Duedate is invalid. Cannot select a duedate before today.";
+            checkmessage.style.color = "red";
+            event.preventDefault() }
+        });
+</script>
+</body>
+</html>

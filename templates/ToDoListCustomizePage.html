@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Customize Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1 class="logo">ToDoList</h1>
+    <form action="/Home" method="post"><input type="submit" class="inputs" value="Home"></form>
+    <form action="/AddTaskPage" method="post"><input type="submit" class="inputs" value="AddTask"></form>
+    <form action="/CustomizePage" method="post"><input type="submit" class="inputs" value="CustomizePage"></form>
+  </header>
+
+  @app.route('/CustomizePage' , methods=["POST"])
+def customizepage():
+    return render_template('ToDoListCustomizePage.html')
+
+  <div class="ToDoListAddTaskPageDiv">
+    <label></label>
+  </div>
+  <footer>
+    <h1 class="logo">@ 2025 ToDoList. All rights reserved.</h1>
+  </footer>
+<script type="text/javascript">
+    document.getElementById("form").addEventListener("submit", function (event) {
+        const usernamevalue = document.getElementById('username').value;
+        const emailcheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const checkmessage = document.getElementById('checkmessage');
+        const remove = document.getElementById('remove');
+        if (emailcheck.test(usernamevalue)) {
+            checkmessage.textContent = "Email is valid.";
+            checkmessage.style.color = 'green';}
+        else {
+            remove.textContent = "";
+            checkmessage.textContent = "Email is invalid. Please enter a valid email address.";
+            checkmessage.style.color = "red";
+            event.preventDefault() }
+    });
+</script>
+</body>
+</html>

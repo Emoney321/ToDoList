@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1 class="logo">ToDoList</h1>
+    <form action="/Home" method="post"><input type="submit" class="inputs" value="Home"></form>
+    <form action="/AddTaskPage" method="post"><input type="submit" class="inputs" value="AddTask"></form>
+  </header>
+  <table>
+      <tbody>
+      <tr>
+          <th class="a1">ID</th>
+          <th class="a2">Title</th>
+          <th class="a1">Status</th>
+          <th class="a2">Due Date</th>
+          <th class="a1">Priority</th>
+          <th class="a2">Action</th>
+      </tr>
+      {% for row in r %}
+      <tr>
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+          <td><form action="/Delete" method="post"><input type="submit" class="deletecompleteform" value="Delete"><input type="hidden" value="{{ row[0] }}" name="id"></form>
+              {% if row[2] == "Completed" %}
+
+              {% else %}
+                <form action="/Complete" method="post">
+                  <input type="submit" class="deletecompleteform" value="Complete">
+                  <input type="hidden" value="{{ row[0] }}" name="id">
+                </form></td>
+          {% endif %}
+      </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+  <footer>
+    <h1 class="logo">@ 2025 ToDoList. All rights reserved.</h1>
+  </footer>
+</body>
+</html>
